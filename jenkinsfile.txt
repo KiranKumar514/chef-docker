@@ -2,7 +2,7 @@ pipeline {
       stage('Building image') {
       steps{
         script {
-         docker build -t "chef" 	
+         docker build -t "chef" .	
 	 }
        }
    }
