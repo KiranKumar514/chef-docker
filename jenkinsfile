@@ -15,5 +15,7 @@ pipeline {
         script {
           docker build -t "chef" .
               }
+              }
+              }
     }
   }
