@@ -2,12 +2,20 @@ pipeline {
   environment {
     registry = "testdocker514/devmbb"
     registryCredential = 'dockerhub'
-  } agent any
-     stage('Building image') {
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/KiranKumar514/chef-docker.git'
+      }
+    }
+      stage('Building image') {
       steps{
-      echo 'Starting to build docker image'
         script {
-          docker build -t "chef"
-          }
-          }
-          }
+          docker build -t "chef" 
+        }
+      }
+    }
+  }
+}
