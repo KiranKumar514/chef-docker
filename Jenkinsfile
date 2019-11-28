@@ -3,7 +3,7 @@ pipeline {
     stages {
        stage('Build image') {
       steps {
-        script {
+        bat {
                hostname
                 }
             }
