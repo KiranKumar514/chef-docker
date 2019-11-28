@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build image') {
         script {
-               docker --version 
+               docker images 
                 }
             }
         }
