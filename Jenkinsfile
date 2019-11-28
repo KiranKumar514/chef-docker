@@ -3,10 +3,8 @@ pipeline {
     stages {
        stage('Build image') {
       steps {
-        bat {
-               hostname
-                }
-            }
+        bat 'hostname'
+           }
         }
     }
 }
