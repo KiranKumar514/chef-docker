@@ -4,8 +4,8 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Starting to build docker image'
-                sh "docker build -t chef ."
-                //customImage.push()
+                docker build -t chef .
+                customImage.push()
                 }
             }
         }
