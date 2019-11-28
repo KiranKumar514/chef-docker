@@ -4,12 +4,10 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Starting to build docker image'
-                script {
-                  docker build -t "chef" . 
-                   customImage.push()
+                sh "docker build -t chef ."
+                //customImage.push()
                 }
             }
         }
     }
-}
 
