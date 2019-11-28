@@ -1,16 +1,18 @@
 pipeline {
-    agent{
-docker{
-image'maven:3-alpine'
-args'-v $HOME/.m2:/root/.m2'
-}
-}
+    agent any
     stages {
-       stage('Build image') {
-      steps {
-        sh 'mvn -V'
-           }
+        stage('Build image') {
+            steps {
+                echo 'Starting to build docker image'
+                script {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push()
+                }
+            }
         }
     }
-}
+
+
+
+
 
