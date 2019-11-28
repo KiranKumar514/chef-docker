@@ -1,12 +1,13 @@
 pipeline {
-    agent any
+   agent {dockerfile true}
     stages {
-        stage('Build image') {
+        stage('xxx') {
             steps {
             script {
-          docker --version
+            sh 'node --version'
+            sh 'svn --version'
                }
             }
         }
     }
-}
+
