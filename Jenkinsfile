@@ -5,8 +5,7 @@ pipeline {
             steps {
                 echo 'Starting to build docker image'
                 script{
-                docker build -t chef .
-                customImage.push()
+               docker --version 
                 }
             }
         }
