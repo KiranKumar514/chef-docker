@@ -1,12 +1,13 @@
 pipeline {
-   agent {dockerfile true}
+    agent any
     stages {
-        stage('xxx') {
+        stage('Build image') {
             steps {
-            script {
-            sh 'node --version'
-            sh 'svn --version'
-               }
+                echo 'Starting to build docker image'
+                script {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push()
+                }
             }
         }
     }
