@@ -9,14 +9,14 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-               dockerImage = docker.build registry + ":chef36"
+               dockerImage = docker.build registry 
                }
             }
         }
          stage('Deploy Image') {
       steps{
         script {
-          dockerImage.push()
+          dockerImage.push("latest")
           }
         }
       }
