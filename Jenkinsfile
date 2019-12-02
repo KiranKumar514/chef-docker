@@ -9,16 +9,18 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-               dockerImage = docker.build registry 
+               dockerImage = docker.build registry + ":$BUILD_NUMBER"
                }
             }
         }
          stage('Deploy Image') {
       steps{
         script {
-          dockerImage.push("latest")
+       docker.withRegistry('', registryCredential ){
+          dockerImage.push("{:$BUILD_NUMBER}")
           }
         }
       }
     }
   }
+}
