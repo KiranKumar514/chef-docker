@@ -1,4 +1,8 @@
 pipeline {
+environment {
+    registry = "testdocker514/devmbb"
+    registryCredential = 'dockercredentials'
+      }
   agent any
     stages {
         stage('Build image') {
