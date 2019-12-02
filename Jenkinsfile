@@ -10,7 +10,7 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-                  dockerImage = docker.build registry + "centoschef:$BUILD_NUMBER"
+                  dockerImage = docker.build centoschef:$BUILD_NUMBER
                  }
             }
         }
