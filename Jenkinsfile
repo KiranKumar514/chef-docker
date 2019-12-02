@@ -13,14 +13,5 @@ environment {
                  }
             }
         }
-	stage('Push Image'){
- 	 steps {
-	  script {
-	    docker.withRegistry('https://registry.hub.docker.com/', 'dockercredentials' ){
-	      dockerImage.push("chef36")
-	  }
-	 }
-	}
       }
-     }
    }
