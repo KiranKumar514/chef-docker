@@ -14,16 +14,17 @@ environment {
                  }
             }
         }
-	stage('Deploy Image')
- 	    steps{
-	    script{
+	stage('Deploy Image'){
+ 	    steps {
+	    script {
 	docker.withRegistry('', resgistryCredential ){
 	dockerImage.push()
 	  }
 	 }
 	}
+      }
 	stage('Remove Unused docker image'){
-	steps{
+	steps {
 	sh "docker rmi $registry:$BUILD_NUMBER"
         	}
 	     }
