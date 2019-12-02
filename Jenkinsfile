@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Starting to build docker image'
                 script {
-                  def customimage = docker.build "centoschef"
+                  def customImage = docker.build "centoschef"
                  }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
  	 steps {
 	  script {
 	    docker.withRegistry('https://registry.hub.docker.com/', 'dockercredentials' ){
-	      customimage.push()
+	      customImage.push()
 	  }
 	 }
 	}
