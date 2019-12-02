@@ -9,7 +9,7 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-               dockerImage = docker.build registry + ":chef23"
+               dockerImage = docker.build registry + ":chef35"
                  }
             }
         }
