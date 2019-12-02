@@ -10,7 +10,7 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-                    def dockerImage = docker.build("centoschef:${env.BUILD_ID}")
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
                  }
             }
         }
@@ -25,7 +25,7 @@ environment {
       }
 	stage('Remove Unused docker image'){
            steps {
-	    sh "docker rmi $registry:$BUILD_ID"
+	    sh "docker rmi $registry:$BUILD_NUMBER"
         	}
 	     }
          }
