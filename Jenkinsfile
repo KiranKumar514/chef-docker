@@ -9,7 +9,7 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-               dockerImage = docker.build registry + ":chef35"
+               dockerImage = docker.build registry + ":chef36"
                  }
             }
         }
@@ -17,7 +17,7 @@ environment {
  	 steps {
 	  script {
 	    docker.withRegistry('https://registry.hub.docker.com/', 'dockercredentials' ){
-	      dockerImage.push("chef")
+	      dockerImage.push("chef36")
 	  }
 	 }
 	}
