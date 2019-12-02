@@ -10,7 +10,7 @@ environment {
             steps {
                 echo 'Starting to build docker image'
                 script {
-                  dockerImage = docker.build centoschef
+                  dockerImage = docker.build "centoschef"
                  }
             }
         }
