@@ -10,8 +10,15 @@ environment {
                 echo 'Starting to build docker image'
                 script {
                dockerImage = docker.build registry + ":chef36"
-                 }
+               }
             }
         }
+         stage('Deploy Image') {
+      steps{
+        script {
+          dockerImage.push()
+          }
+        }
       }
-   }
+    }
+  }
