@@ -17,7 +17,7 @@ environment {
 	stage('Deploy Image'){
  	 steps {
 	  script {
-	    docker.withRegistry('', resgistryCredential ){
+	    docker.withRegistry('https://hub.docker.com/', 'dockercredentials' ){
 	      dockerImage.push()
 	  }
 	 }
