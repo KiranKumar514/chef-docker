@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Starting to build docker image'
                 script {
-                  def customImage = docker.build "centoschef"
+                  def customImage = docker.build("centoschef:${env.BUILD_ID}")
                  }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
  	 steps {
 	  script {
 	    docker.withRegistry('https://registry.hub.docker.com/', 'dockercredentials' ){
-	      customImage.push()
+	      customImage.push("${env.BUILD_ID}")
 	  }
 	 }
 	}
