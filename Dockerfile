@@ -1,5 +1,5 @@
 FROM centos
-VOULME /data
+VOLUME /data
 ENV TEST=4.5.0
 MAINTAINER devops <testxxxx@test.com>
 ADD ./resource /resource
